@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #34ebeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.todo__wrapper {
+    background-color: white;
+    padding: 15px;
+    width: fit-content;
+    border-radius: 6px;
+}
+
+.todo__input {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(238, 222, 222);
+}
+
+.todo__button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 20px;
+    font-size: 16px;
+    line-height: 9px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+}
+
+.todo__input-wrapper {
+    position: relative;
+}
