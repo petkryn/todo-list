@@ -1,0 +1,143 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+nav, footer, header, aside {
+    display: block;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+input, button, textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+    background-color: transparent;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a, a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+body {
+    background-color: #34ebeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.todo__wrapper {
+    background-color: white;
+    padding: 15px;
+    width: fit-content;
+    border-radius: 6px;
+}
+
+.todo__input {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(238, 222, 222);
+}
+
+.todo__button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 20px;
+    font-size: 16px;
+    line-height: 9px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.todo__input-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.todo__img {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+}
+
+.todo__task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: rgb(238, 222, 222);
+}
+
+.todo__task-btn {
+    border: none;
+}
+
+.todo__buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.todo__task-description {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.todo__task-description.done {
+    text-decoration: line-through;
+}
+
+.todo__task-btn.done {
+    display: none;
+}
+
+.todo__tasks-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

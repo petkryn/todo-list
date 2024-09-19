@@ -4,8 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>Test Changes</div>
+    <div class="todo__wrapper">
+        <h1 class="todo__title">ToDo List</h1>
+        <div class="todo__input-wrapper">
+            <input type="text" placeholder="Add your items" id="todo-input" class="todo__input">
+            <button class="todo__button" id="add-button">+</button>
+        </div>
+
+        <div class="todo__tasks-wrapper">
+            <div class="todo__task">
+                <span class="todo__task-description">Lorem ipsum</span>
+                <div class="todo__buttons">
+                    <button class="todo__task-btn">
+                        <img class="todo__img" src="img/pencil.png" alt="correction">
+                    </button>
+                    <button class="todo__task-btn">
+                        <img class="todo__img" src="img/bin.png" alt="delete">
+                    </button>
+                </div>
+            </div>
+    
+            <div class="todo__task">
+                <span class="todo__task-description done">Lorem ipsum</span>
+                <div class="todo__buttons">
+                    <button class="todo__task-btn done">
+                        <img class="todo__img" src="img/pencil.png" alt="correction">
+                    </button>
+                    <button class="todo__task-btn">
+                        <img class="todo__img" src="img/bin.png" alt="delete">
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 </body>
-</html>
+</html> 
