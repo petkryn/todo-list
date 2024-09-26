@@ -6,19 +6,18 @@ addTaskButton.addEventListener("click", addTaskHandler);
 
 function createTask(text) {
     let div = document.createElement("div");
-        div.innerHTML = `
-            <div class="todo__task">
-                <span class="todo__task-description">${text}</span>
-                <div class="todo__buttons">
-                    <button class="todo__task-btn">
-                        <img class="todo__img" src="img/pencil.png" alt="correction">
-                    </button>
-                    <button class="todo__task-btn">
-                        <img class="todo__img" src="img/bin.png" alt="delete">
-                    </button>
-                </div>
+    div.classList.add("todo__task");
+    div.innerHTML = `
+            <span class="todo__task-description">${text}</span>
+            <div class="todo__buttons">
+                <button class="todo__task-btn">
+                    <img class="todo__img" src="img/pencil.png" alt="correction">
+                </button>
+                <button class="todo__task-btn">
+                    <img class="todo__img" src="img/bin.png" alt="delete">
+                </button>
             </div>
-    `
+        `
     return div;
 }
 
@@ -28,6 +27,6 @@ function addTaskHandler() {
         taskList.append(newTask);
         taskNameInput.value = "";
     } else { 
-        alert("введите имя задачи");
+        alert("Введіть ім'я задачі");
     }
 }
