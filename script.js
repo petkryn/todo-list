@@ -13,12 +13,16 @@ function createTask(text) {
                 <button class="todo__task-btn">
                     <img class="todo__img" src="img/pencil.png" alt="correction">
                 </button>
-                <button class="todo__task-btn">
+                <button class="todo__task-btn" onclick="deletetask(event)">
                     <img class="todo__img" src="img/bin.png" alt="delete">
                 </button>
             </div>
         `
     return div;
+}
+
+function deletetask(event) {
+    event.target.parentElement.parentElement.parentElement.remove();
 }
 
 function addTaskHandler() {
