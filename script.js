@@ -1,6 +1,6 @@
-let taskNameInput = document.querySelector("#todo-input");
-let addTaskButton = document.querySelector("#add-button");
-let taskList = document.querySelector(".todo__tasks-wrapper")
+const taskNameInput = document.querySelector("#todo-input");
+const addTaskButton = document.querySelector("#add-button");
+const taskList = document.querySelector(".todo__tasks-wrapper")
 
 addTaskButton.addEventListener("click", addTaskHandler);
 
@@ -22,8 +22,7 @@ function createTask(text) {
 }
 
 function deleteTask(event) {
-    // event.target.parentElement.parentElement.parentElement.remove();
-    let taskItem = event.target.closest(".todo__tasks-wrapper");
+    const taskItem = event.target.closest(".todo__tasks-wrapper");
     if (taskItem) {
         taskItem.remove();
     }
