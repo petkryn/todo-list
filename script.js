@@ -1,4 +1,4 @@
-const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 const taskNameInput = document.querySelector("#todo-input");
 const addTaskButton = document.querySelector("#add-button");
@@ -25,9 +25,11 @@ function createTask(text) {
 
 function deleteTask(event) {
     const taskItem = event.target.closest(".todo__task");
-    if (taskItem) {
-        taskItem.remove();
-    }
+    const taskDescription = taskItem.querySelector(".todo__task-description").textContent;
+    const updatedTasks = tasks.filter((task) => task !== taskDescription);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+    tasks = updatedTasks;
+    displayTasks();
 }
 
 function addTaskHandler() {
@@ -41,6 +43,10 @@ function addTaskHandler() {
 }
 
 function addTaskToLocalStorage(taskName) {
+    if (tasks.includes(taskName)) {
+        alert("Таке завдання вже є");
+        return;
+    }
     tasks.push(taskName);
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
