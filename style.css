@@ -138,6 +138,7 @@ body {
 
 .todo__task-description.done {
     text-decoration: line-through;
+    color: grey;
 }
 
 .todo__task-btn.done {

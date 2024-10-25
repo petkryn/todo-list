@@ -6,11 +6,14 @@ const taskList = document.querySelector(".todo__tasks-wrapper")
 
 addTaskButton.addEventListener("click", addTaskHandler);
 
-function createTask(text) {
+function createTask(taskName, isDone) {
     const div = document.createElement("div");
     div.classList.add("todo__task");
     div.innerHTML = `
-            <span class="todo__task-description">${text}</span>
+            <div>
+                <input class="todo__checkbox" id="task-checkbox" type="checkbox" ${isDone ? "checked" : ""} onclick="completeTask(event)">
+                <span class="todo__task-description ${isDone ? 'done' : ''}">${taskName}</span>
+            </div>
             <div class="todo__buttons">
                 <button class="todo__task-btn">
                     <img class="todo__img" src="img/pencil.png" alt="correction">
@@ -26,7 +29,7 @@ function createTask(text) {
 function deleteTask(event) {
     const taskItem = event.target.closest(".todo__task");
     const taskDescription = taskItem.querySelector(".todo__task-description").textContent;
-    const updatedTasks = tasks.filter((task) => task !== taskDescription);
+    const updatedTasks = tasks.filter((task) => task.taskName !== taskDescription);
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     tasks = updatedTasks;
     displayTasks();
@@ -43,20 +46,32 @@ function addTaskHandler() {
 }
 
 function addTaskToLocalStorage(taskName) {
-    if (tasks.includes(taskName)) {
+    if (tasks.some((task) => task.taskName.toLowerCase() == taskName.toLowerCase())) {
         alert("Таке завдання вже є");
         return;
     }
-    tasks.push(taskName);
+    tasks.push({ taskName: taskName, isDone: false });
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 function displayTasks() {
     taskList.innerHTML = "";
-    tasks.forEach(element => {
-        const newTask = createTask(element);
-        taskList.append(newTask);
-    })
+    tasks.forEach(task => taskList.append(createTask(task.taskName, task.isDone)));
+}
+
+function completeTask(event) {
+    const taskItem = event.target.closest(".todo__task");
+    const taskDescription = taskItem.querySelector(".todo__task-description").textContent;
+
+    const updatedTasks = tasks.map((task) => {
+        if (task.taskName === taskDescription) {
+            return { ...task, isDone: event.target.checked}
+        }
+        return task;
+    });
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+    tasks = updatedTasks;
+    displayTasks();
 }
 
 displayTasks();
